@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <link rel="dns-prefetch" href="https://wildrage-cdn.5awo.com/source"/>
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            网络流笔记 | 
+        
+        WildRage&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://wildrage-cdn.5awo.com/wildrage.png">
+    <link rel="icon" href="https://wildrage-cdn.5awo.com/wildrage.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="网络流
+是指在一个每条边都有容量（capacity）的有向图分配流，使一条边的流量不会超过它的容量。 
+
+最大流Dinic
+Dinic算法（又称Dinitz算法）是一个在网络流中计算最大流的强多项式复杂度的算法，设想由以色列（前苏联）的计算机科学家Yefim (Chaim) A. Dinitz在1970年提出。">
+    <meta name="keywords" content="null,网络流">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","https://wildrage-cdn.5awo.com/source/css/material.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://wildrage-cdn.5awo.com/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","https://wildrage-cdn.5awo.com/source/css/prettify.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","https://wildrage-cdn.5awo.com/source/css/prettify/hemisu-light.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(https://bing.ioliu.cn/v1);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","https://wildrage-cdn.5awo.com/source/css/material-icons.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://wildrage-cdn.5awo.com/source/js/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="WildRage&#39;s Blog">
+    <meta name="msapplication-starturl" content="https://blog.wildrage.xyz/2017/06/13/网络流/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="WildRage&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://wildrage-cdn.5awo.com/wildrage.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://blog.wildrage.xyz/2017/06/13/网络流/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="网络流笔记 | WildRage&#39;s Blog">
+    <meta property="og:image" content="https://wildrage-cdn.5awo.com/wildrage.png">
+    <meta property="og:description" content="网络流
+是指在一个每条边都有容量（capacity）的有向图分配流，使一条边的流量不会超过它的容量。 
+
+最大流Dinic
+Dinic算法（又称Dinitz算法）是一个在网络流中计算最大流的强多项式复杂度的算法，设想由以色列（前苏联）的计算机科学家Yefim (Chaim) A. Dinitz在1970年提出。">
+    <meta property="og:article:tag" content="网络流"> 
+
+    
+        <meta property="article:published_time" content="Tue Jun 13 2017 09:41:05 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 06 2018 01:40:06 GMT+0000">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://blog.wildrage.xyz/2017/06/13/网络流/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://blog.wildrage.xyz/2017/06/13/网络流/index.html",
+    "headline": "网络流笔记",
+    "datePublished": "Tue Jun 13 2017 09:41:05 GMT+0800",
+    "dateModified": "Tue Mar 06 2018 01:40:06 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "WildRage",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://wildrage-cdn.5awo.com/wildrage.png"
+        },
+        "description": "美しいものが起こることを常に信じている"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "WildRage&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://wildrage-cdn.5awo.com/wildrage.png"
+        }
+    },
+    "keywords": ",网络流null",
+    "description": "网络流
+是指在一个每条边都有容量（capacity）的有向图分配流，使一条边的流量不会超过它的容量。 
+
+最大流Dinic
+Dinic算法（又称Dinitz算法）是一个在网络流中计算最大流的强多项式复杂度的算法，设想由以色列（前苏联）的计算机科学家Yefim (Chaim) A. Dinitz在1970年提出。",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-102044541-1', 'auto');ga('send', 'pageview');
+</script>
+    
+    
+        <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?266bd695243da8f9574854aa4aa3e099';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+    
+
+    <!-- Custom Head -->
+    
+        
+            <link href="https://cdn.bootcss.com/KaTeX/0.9.0/katex.min.css" rel="stylesheet">
+        
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络流"><span class="post-toc-number">1.</span> <span class="post-toc-text">网络流</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最大流"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">最大流</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Dinic"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Dinic</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最大流例题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">最大流例题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最小割"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">最小割</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最大权闭合子图"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">最大权闭合子图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解题"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">解题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#NOI2006-最大获利"><span class="post-toc-number">1.3.1.1.1.</span> <span class="post-toc-text">[NOI2006 最大获利]</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#费用流"><span class="post-toc-number">2.</span> <span class="post-toc-text">费用流</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#连续最短路算法"><span class="post-toc-number">2.0.0.1.</span> <span class="post-toc-text">连续最短路算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#SDOI2009-晨跑"><span class="post-toc-number">2.0.0.1.0.1.</span> <span class="post-toc-text">[SDOI2009]晨跑</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#SDOI2007-修车"><span class="post-toc-number">2.0.0.1.0.2.</span> <span class="post-toc-text">[SDOI2007]修车</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#SDOI2016-数字匹配"><span class="post-toc-number">2.0.0.1.0.3.</span> <span class="post-toc-text">[SDOI2016]数字匹配</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#SDOI2013-费用流"><span class="post-toc-number">2.0.0.1.0.4.</span> <span class="post-toc-text">[SDOI2013]费用流</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#codevs-1227-方格取数2"><span class="post-toc-number">2.0.0.1.0.5.</span> <span class="post-toc-text">[codevs 1227]方格取数2</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#BZOJ-3438-小M的作物"><span class="post-toc-number">2.0.0.1.0.6.</span> <span class="post-toc-text">[BZOJ 3438]小M的作物</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#BZOJ1283-序列"><span class="post-toc-number">2.0.0.1.0.7.</span> <span class="post-toc-text">[BZOJ1283] 序列</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#JLOI2014-镜面通道"><span class="post-toc-number">2.0.0.1.0.8.</span> <span class="post-toc-text">[JLOI2014]镜面通道</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题面"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">题面</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 17 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', 'https://wildrage-cdn.5awo.com/source/img/random/pixiv-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                网络流笔记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://wildrage-cdn.5awo.com/wildrage.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>WildRage</strong>
+        <span>6月 13, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACaUlEQVR42u3aQY7CMBAEQP7/afYBCLZ7HJsIVU4IhdiVg2165vH86euBh4eHh4eHh4d3M94jvl5/9XaAN/e/Pi0ZpZ4bHh4e3hHeP0vtm3vayeXglbnh4eHhneS1Qybsz2O193+eGx4eHt79eTNMfg8eHh7eL/Hybz7HB8lz8PDw8O7MS/7wv9sG8k0iDzW+kLXg4eHhxbyVpXz356P1PTw8PLyAV7c0jeLXtqXgsqYrPDw8vA28fCFO2EnIOyuM5fPBw8PD283Ly1qzULX97ewbPDw8vJO8/IicRxVtE1WyzeTxLh4eHt5uXjJYQp1FD0VDwKx1AA8PD28brwXMmq6SZoJZSxYeHh7eed5scW9LZStls+S14uHh4Z3htWFE/jryIHhlQ7o4a8HDw8Mrz5zt8EkJrS2D5SHvUoyLh4eHt8DLi17Ro2PALP6IXiIeHh7eEd5K+epZXu3WUgfEeHh4eJt5+fG3DW3bLSR/HcN/DHh4eHgX8doy1crws4N7uyHh4eHh7eblg7WH6fWlfzguHh4e3mZefvBtp/4IrvzJRWiCh4eHd5CXTHRWlGqP1G2RDA8PD++7vFn8OqO27a3JPPHw8PBO8tqQYhY0zA7fFzRd4eHh4V3Ea69ksKQRIT92JyUxPDw8vJO89eU4KZvlB/RZdIuHh4d3njdrAhgWqEZNCcWrx8PDwzvIy5tH86W/bVDItyg8PDy8X+KttJ+uHOLx8PDw7sybHazbpqvPY9VhBB4eHt4GXn4gbhsOkuihjTDw8PDwvsubRQD5wt3+Kg928fDw8M7zfu/Cw8PDw8PDw8O7wfUHNpntOfVVI9kAAAAASUVORK5CYII=">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/网络流/">网络流</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2017/06/13/网络流/" class="leancloud-views_num" data-flag-title="网络流笔记">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=网络流笔记&url=https://blog.wildrage.xyz/2017/06/13/网络流/index.html&pic=https://blog.wildrage.xyzhttps://wildrage-cdn.5awo.com/wildrage.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=网络流笔记&url=https://blog.wildrage.xyz/2017/06/13/网络流/index.html&via=WildRage" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wildrage.xyz/2017/06/13/网络流/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://blog.wildrage.xyz/2017/06/13/网络流/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=WildRage&#39;s Blog&title=网络流笔记&summary=WildRage 的博客 爱这个世界&pics=https://blog.wildrage.xyzhttps://wildrage-cdn.5awo.com/wildrage.png&url=https://blog.wildrage.xyz/2017/06/13/网络流/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h1><blockquote>
+<p>是指在一个每条边都有容量（capacity）的有向图分配流，使一条边的流量不会超过它的容量。 </p>
+</blockquote>
+<h3 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h3><h2 id="Dinic"><a href="#Dinic" class="headerlink" title="Dinic"></a>Dinic</h2><blockquote>
+<p>Dinic算法（又称Dinitz算法）是一个在网络流中计算最大流的强多项式复杂度的算法，设想由以色列（前苏联）的计算机科学家Yefim (Chaim) A. Dinitz在1970年提出。<br><a id="more"></a> </p>
+</blockquote>
+<h2 id="最大流例题"><a href="#最大流例题" class="headerlink" title="最大流例题"></a>最大流例题</h2><p>[Usaco 2007 Open] Dining吃饭 </p>
+<blockquote>
+<p>题意：<br>有N头牛，F种食物和D种饮料，每头牛有多种喜欢的食物和饮料，每头牛只可以吃一种食物和饮料，且每种食物和饮料都只能被一头牛吃掉。一头牛满意当且仅当它吃到满意的食物并且喝到想喝的饮料，问最多可能让多少头牛满意。   </p>
+</blockquote>
+<h2 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h2><h3 id="最大权闭合子图"><a href="#最大权闭合子图" class="headerlink" title="最大权闭合子图"></a>最大权闭合子图</h3><blockquote>
+<p>现在有一个有向图，每个点有点权，点权可正可负。对于任意一条有向边i和j，选择了点i就必须选择点j，你需要选择一些点使得得到权值最大。 </p>
+</blockquote>
+<h4 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h4><pre><code>将由源点S向权值为正的点连流量为i的边，将权值为负的点向汇点连边
+限制关系连流量为INF的图
+</code></pre><h5 id="NOI2006-最大获利"><a href="#NOI2006-最大获利" class="headerlink" title="[NOI2006 最大获利]"></a>[NOI2006 最大获利]</h5><blockquote>
+<p>建权值为Ci的一个图像Ai与Bi建图<br>转化为最大权闭合子图</p>
+</blockquote>
+<p>其他  </p>
+<pre><code>二分图最大点权匹配
+二分图最大点权独立集
+</code></pre><hr>
+<h1 id="费用流"><a href="#费用流" class="headerlink" title="费用流"></a>费用流</h1><ul>
+<li>最大费用流</li>
+<li>最小费用最大流</li>
+</ul>
+<h4 id="连续最短路算法"><a href="#连续最短路算法" class="headerlink" title="连续最短路算法"></a>连续最短路算法</h4><ul>
+<li>贪心思想</li>
+<li>从源点开始每次寻找总费用最小的增广路</li>
+<li>直到不能增广为止</li>
+</ul>
+<h6 id="SDOI2009-晨跑"><a href="#SDOI2009-晨跑" class="headerlink" title="[SDOI2009]晨跑"></a>[SDOI2009]晨跑</h6><blockquote>
+<p>Elaxia最近迷恋上了空手道，他为自己设定了一套健身计划，比如俯卧撑、仰卧起坐等 等，不过到目前为止，他坚持下来的只有晨跑。 现在给出一张学校附近的地图，这张地图中包含N个十字路口和M条街道，Elaxia只能从 一个十字路口跑向另外一个十字路口，街道之间只在十字路口处相交。Elaxia每天从寝室出发 跑到学校，保证寝室编号为1，学校编号为N。 Elaxia的晨跑计划是按周期（包含若干天）进行的，由于他不喜欢走重复的路线，所以 在一个周期内，每天的晨跑路线都不会相交（在十字路口处），寝室和学校不算十字路 口。Elaxia耐力不太好，他希望在一个周期内跑的路程尽量短，但是又希望训练周期包含的天 数尽量长。 除了练空手道，Elaxia其他时间都花在了学习和找MM上面，所有他想请你帮忙为他设计 一套满足他要求的晨跑计划。  </p>
+</blockquote>
+<h6 id="SDOI2007-修车"><a href="#SDOI2007-修车" class="headerlink" title="[SDOI2007]修车"></a>[SDOI2007]修车</h6><blockquote>
+<p>同一时刻有N位车主带着他们的爱车来到了汽车维修中心。维修中心共有M位技术人员，不同的技术人员对不同的车进行维修所用的时间是不同的。现在需要安排这M位技术人员所维修的车及顺序，使得顾客平均等待的时间最小。 说明：顾客的等待时间是指从他把车送至维修中心到维修完毕所用的时间。  </p>
+</blockquote>
+<pre><code>将每个人拆成n个点
+第i个点代表这个人修的车中倒数第i辆
+将每辆车向这些点连边，流量为1
+的费用为f[i][j]*i
+源点连向车，工作人员向汇点连边
+</code></pre><h6 id="SDOI2016-数字匹配"><a href="#SDOI2016-数字匹配" class="headerlink" title="[SDOI2016]数字匹配"></a>[SDOI2016]数字匹配</h6><blockquote>
+<p>有 n 种数字，第 i 种数字是 ai、有 bi 个，权值是 ci。<br>若两个数字 ai、aj 满足，ai 是 aj 的倍数，且 ai/aj 是一个质数，<br>那么这两个数字可以配对，并获得 ci×cj 的价值。<br>一个数字只能参与一次配对，可以不参与配对。<br>在获得的价值总和不小于 0 的前提下，求最多进行多少次配对。</p>
+</blockquote>
+<pre><code>以奇数和偶数因子建二分图
+</code></pre><h6 id="SDOI2013-费用流"><a href="#SDOI2013-费用流" class="headerlink" title="[SDOI2013]费用流"></a>[SDOI2013]费用流</h6><blockquote>
+<p>Alice和Bob在图论课程上学习了最大流和最小费用最大流的相关知识。<br>最大流问题：给定一张有向图表示运输网络，一个源点S和一个汇点T，每条边都有最大流量。<br>一个合法的网络流方案必须满足：<br>(1)每条边的实际流量都不超过其最大流量且非负；<br>(2)除了源点S和汇点T之外，对于其余所有点，都满足该点总流入流量等于该点总流出流量；而S点的净流出流量等于T点的净流入流量，这个值也即该网络流方案的总运输量。最大流问题就是对于给定的运输网络，求总运输量最大的网络流方案。<br>上图表示了一个最大流问题。<br>对于每条边，右边的数代表该边的最大流量，左边的数代表在最优解中，该边的实际流量。需要注意到，一个最大流问题的解可能不是唯一的。    对于一张给定的运输网络，Alice先确定一个最大流，如果有多种解，Alice可以任选一种；之后Bob在每条边上分配单位花费（单位花费必须是非负实数），要求所有边的单位花费之和等于P。总费用等于每一条边的实际流量乘以该边的单位花费。需要注意到，Bob在分配单位花费之前，已经知道Alice所给出的最大流方案。现茌Alice希望总费用尽量小，而Bob希望总费用尽量大。我们想知道，如果两个人都执行最优策略，最大流的值和总费用分别为多少。</p>
+</blockquote>
+<h6 id="codevs-1227-方格取数2"><a href="#codevs-1227-方格取数2" class="headerlink" title="[codevs 1227]方格取数2"></a>[codevs 1227]方格取数2</h6><blockquote>
+<p>给出一个n*n的矩阵,每一格有一个非负整数Aij,(Aij &lt;= 1000)现在从(1,1)出发,可以往右或者往下走,最后到达(n,n),每达到一格,把该格子的数取出来,该格子的数就变成0,这样一共走K次,现在要求K次所达到的方格的数的和最大</p>
+</blockquote>
+<h6 id="BZOJ-3438-小M的作物"><a href="#BZOJ-3438-小M的作物" class="headerlink" title="[BZOJ 3438]小M的作物"></a>[BZOJ 3438]小M的作物</h6><blockquote>
+<p>小M在MC里开辟了两块巨大的耕地A和B（你可以认为容量是无穷），现在，小P有n中作物的种子，每种作物的种子<br>有1个（就是可以种一棵作物）（用1…n编号），现在，第i种作物种植在A中种植可以获得ai的收益，在B中种植<br>可以获得bi的收益，而且，现在还有这么一种神奇的现象，就是某些作物共同种在一块耕地中可以获得额外的收益<br>，小M找到了规则中共有m种作物组合，第i个组合中的作物共同种在A中可以获得c1i的额外收益，共同总在B中可以<br>获得c2i的额外收益，所以，小M很快的算出了种植的最大收益，但是他想要考考你，你能回答他这个问题么？</p>
+</blockquote>
+<h6 id="BZOJ1283-序列"><a href="#BZOJ1283-序列" class="headerlink" title="[BZOJ1283] 序列"></a>[BZOJ1283] 序列</h6><blockquote>
+<p>给出一个长度为 的正整数序列Ci，求一个子序列，使得原序列中任意长度为M的子串中被选出的元素不超过K(K,M&lt;=100) 个，并且选出的元素之和最大。</p>
+</blockquote>
+<h6 id="JLOI2014-镜面通道"><a href="#JLOI2014-镜面通道" class="headerlink" title="[JLOI2014]镜面通道"></a>[JLOI2014]镜面通道</h6><h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3630" target="_blank" rel="noopener">题面</a></h2>
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://blog.wildrage.xyz/2017/06/13/网络流/">https://blog.wildrage.xyz/2017/06/13/网络流/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "hRRi8jRRJiMaKCoOeToz8Geo-gzGzoHsz",
+        appKey: "1gTOBrBAIYbj2urmHJfu5gcl",
+        placeholder: "Just go go",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-cn'
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/06/13/1/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://wildrage-cdn.5awo.com/source/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://wildrage-cdn.5awo.com/wildrage.png" alt="WildRage's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        i@wildrage.xyz
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:i@wildarge.xyz" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/downloads.html" target="_blank" title="下载页">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">file_download</i>
+                        
+                        下载页
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://bzoj.wildrage.cf" target="_blank" title="BZOJCH">
+                        
+                        BZOJCH
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">51</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">28</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">27</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/图库/">图库<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识点/">知识点<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/笔记/">笔记<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/随笔/">随笔<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/题解/">题解<span class="sidebar_archives-count">123</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">link</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="timeline">
+                
+                timeline
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">135</span>
+            </a>
+        </li>
+        
+    
+
+</ul>
+
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/TH_WildRage" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/114680211057663785581" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/HZoi-WildRage" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/wildrage-88" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>WildRage's Blog
+            
+                <br>
+                
+                    <p>CDN Powered by <a href="https://www.upyun.com/"><img alt="upyun_logo" src="https://wildrage-cdn.5awo.com/source/img/upyun_logo.png" style="width: 80px;" /></a></p>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","https://wildrage-cdn.5awo.com/source/js/lazyload.min.js", true)</script>
+
+
+
+    <script>lsloader.load("js_js","https://wildrage-cdn.5awo.com/source/js/js.min.js", true)</script>
+
+
+
+    <script>lsloader.load("np_js","https://wildrage-cdn.5awo.com/source/js/nprogress.js", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","https://wildrage-cdn.5awo.com/source/js/smoothscroll.js", true)</script>
+    
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('hRRi8jRRJiMaKCoOeToz8Geo-gzGzoHsz', '1gTOBrBAIYbj2urmHJfu5gcl');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","https://wildrage-cdn.5awo.com/source/js/prettify.min.js", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+    
+        <script src="https://wildrage-cdn.5awo.com/source/js/selector.js"></script> <script src="https://cdn.bootcss.com/KaTeX/0.9.0/katex.min.js"></script> <script src="https://cdn.bootcss.com/KaTeX/0.9.0/contrib/auto-render.js"></script>
+    
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
